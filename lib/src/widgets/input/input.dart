@@ -181,6 +181,7 @@ class _InputState extends State<Input> {
                   child: Padding(
                     padding: textPadding,
                     child: TextField(
+                      autofocus: widget.options.autofocus,
                       controller: _textController,
                       cursorColor: InheritedChatTheme.of(context)
                           .theme
@@ -248,6 +249,7 @@ class InputOptions {
     this.onTextFieldTap,
     this.sendButtonVisibilityMode = SendButtonVisibilityMode.editing,
     this.textEditingController,
+    this.autofocus = false,
   });
 
   /// Controls the [Input] clear behavior. Defaults to [InputClearMode.always].
@@ -271,4 +273,6 @@ class InputOptions {
   /// you can create your own [InputTextFieldController] (imported from this lib)
   /// and pass it here.
   final TextEditingController? textEditingController;
+
+  final bool autofocus;
 }
