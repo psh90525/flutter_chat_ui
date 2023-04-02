@@ -387,7 +387,7 @@ class TypingAvatar extends StatelessWidget {
       backgroundImage: hasImage
           ? NetworkImage(author.imageUrl!)
           : hasImageAsset
-              ? author.imageAsset
+              ? author.imageAsset.image
               : null,
       radius: 13,
       child: !hasImage
