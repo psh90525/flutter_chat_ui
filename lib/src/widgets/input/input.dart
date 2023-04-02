@@ -181,7 +181,7 @@ class _InputState extends State<Input> {
                   child: Padding(
                     padding: textPadding,
                     child: TextField(
-                      autofocus: true,
+                      autofocus: widget.options.autofocus,
                       controller: _textController,
                       cursorColor: InheritedChatTheme.of(context)
                           .theme

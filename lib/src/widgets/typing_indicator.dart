@@ -377,13 +377,18 @@ class TypingAvatar extends StatelessWidget {
       InheritedChatTheme.of(context).theme.userAvatarNameColors,
     );
     final hasImage = author.imageUrl != null;
+    final hasImageFile = author.imageAssetUrl != null;
     final initials = getUserInitials(author);
 
     return CircleAvatar(
       backgroundColor: hasImage
           ? InheritedChatTheme.of(context).theme.userAvatarImageBackgroundColor
           : color,
-      backgroundImage: hasImage ? NetworkImage(author.imageUrl!) : null,
+      backgroundImage: hasImage
+          ? NetworkImage(author.imageUrl!)
+          : hasImageFile
+              ? Image.asset(author.imageAssetUrl!).image
+              : null,
       radius: 13,
       child: !hasImage
           ? Text(
